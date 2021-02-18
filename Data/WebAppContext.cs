@@ -15,8 +15,7 @@ namespace WpfWebApp.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string path = System.IO.Path.Combine(System.Environment.CurrentDirectory, "db.db");
-            optionsBuilder.UseSqlite($"Filename={path}");
+            optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Database=WpfWebApp");
         }
     }
 }
