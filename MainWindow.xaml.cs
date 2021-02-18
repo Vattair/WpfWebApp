@@ -51,5 +51,15 @@ namespace WpfWebApp
         {
             if (usernameTextBox.Text != null && firstnameTextBox.Text != null && lastnameTextBox.Text != null) DB.AddUser(usernameTextBox.Text, firstnameTextBox.Text, lastnameTextBox.Text);
         }
+
+        private void AddCategoryButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (categorynameTextBox.Text != null) DB.AddCategory(categorynameTextBox.Text);
+        }
+
+        private void AddPostButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (useridTextBox.Text != null && categoryidTextBox.Text != null && contentTextBox.Text != null) DB.AddPost(int.Parse(useridTextBox.Text), int.Parse(categoryidTextBox.Text), contentTextBox.Text);
+        }
     }
 }

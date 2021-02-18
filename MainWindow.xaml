@@ -34,27 +34,39 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Dodaj post">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <Label Content="ID użytkownika" HorizontalAlignment="Left" Margin="150,50,0,0" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" Margin="350,50,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" x:Name="useridTextBox"/>
+                    
+                    <Label Content="ID kategorii" HorizontalAlignment="Left" Margin="150,85,0,0" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" Margin="350,85,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" x:Name="categoryidTextBox"/>
+                    
+                    <Label Content="Zawartość" HorizontalAlignment="Left" Margin="150,120,0,0" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" Margin="350,120,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" x:Name="contentTextBox"/>
+                    
+                    <Button Content="Dodaj" HorizontalAlignment="Left" Margin="250,155,0,0" VerticalAlignment="Top" Click="AddPostButton_Click"/>
+                </Grid>
             </TabItem>
             <TabItem Header="Dodaj użytkownika">
                 <Grid Background="#FFE5E5E5">
-                    <Label Content="Nazwa użytkownika" HorizontalAlignment="Left" Margin="150,50,0,0" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" Margin="350,50,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" x:Name="usernameTextBox"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="129*"/>
+                        <ColumnDefinition Width="268*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Nazwa użytkownika" HorizontalAlignment="Left" Margin="150,50,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <TextBox HorizontalAlignment="Left" Margin="92,50,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" x:Name="usernameTextBox" Grid.Column="1"/>
                     <Label Content="Imie" HorizontalAlignment="Left" Margin="150,85,0,0" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" Margin="350,85,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" x:Name="firstnameTextBox"/>
+                    <TextBox HorizontalAlignment="Left" Margin="92,85,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" x:Name="firstnameTextBox" Grid.Column="1"/>
                     <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="150,120,0,0" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" Margin="350,120,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" x:Name="lastnameTextBox"/>
-                    <Button Content="Dodaj" HorizontalAlignment="Left" Margin="250,200,0,0" VerticalAlignment="Top" Click="AddUserButton_Click"/>
+                    <TextBox HorizontalAlignment="Left" Margin="92,120,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" x:Name="lastnameTextBox" Grid.Column="1"/>
+                    <Button Content="Dodaj" HorizontalAlignment="Left" Margin="250,200,0,0" VerticalAlignment="Top" Click="AddUserButton_Click" Grid.ColumnSpan="2"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Dodaj kategorie">
                 <Grid Background="#FFE5E5E5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="130*"/>
-                        <ColumnDefinition Width="17*"/>
-                        <ColumnDefinition Width="647*"/>
-                    </Grid.ColumnDefinitions>
-                    <Label Content="Nazwa kategorii" HorizontalAlignment="Left" Margin="3,50,0,0" VerticalAlignment="Top" Grid.Column="2"/>
+                    <Label Content="Nazwa kategorii" HorizontalAlignment="Left" Margin="150,50,0,0" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" Margin="350,55,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" x:Name="categorynameTextBox"/>
+                    <Button Content="Dodaj" HorizontalAlignment="Left" Margin="175,120,0,0" VerticalAlignment="Top" Click="AddCategoryButton_Click"/>
                 </Grid>
             </TabItem>
         </TabControl>
