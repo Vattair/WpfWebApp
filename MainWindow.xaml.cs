@@ -60,6 +60,8 @@ namespace WpfWebApp
         private void AddPostButton_Click(object sender, RoutedEventArgs e)
         {
             if (useridTextBox.Text != null && categoryidTextBox.Text != null && contentTextBox.Text != null) DB.AddPost(int.Parse(useridTextBox.Text), int.Parse(categoryidTextBox.Text), contentTextBox.Text);
+
+            Load();
         }
     }
 }
