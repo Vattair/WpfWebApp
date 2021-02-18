@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfWebApp.Data;
+using WpfWebApp.Models;
 
 namespace WpfWebApp
 {
@@ -20,9 +22,34 @@ namespace WpfWebApp
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        WebAppContext context = new WebAppContext();
+        public static DataGrid _postDataGrid;
         public MainWindow()
         {
             InitializeComponent();
+            Load();
+        }
+
+        private void Load()
+        {
+            PostDataGrid.ItemsSource = context.Posts.ToList();
+            _postDataGrid = PostDataGrid;
+        }
+
+        private void removePostBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (PostDataGrid.SelectedItem as Post == null) return;
+            int postID = (PostDataGrid.SelectedItem as Post).PostID;
+            var deletePost = context.Posts.Where(p => p.PostID == postID).Single();
+            context.Posts.Remove(deletePost);
+            context.SaveChanges();
+            PostDataGrid.ItemsSource = context.Posts.ToList();
+        }
+
+        private void AddUserButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (usernameTextBox.Text != null && firstnameTextBox.Text != null && lastnameTextBox.Text != null) DB.AddUser(usernameTextBox.Text, firstnameTextBox.Text, lastnameTextBox.Text);
         }
     }
 }

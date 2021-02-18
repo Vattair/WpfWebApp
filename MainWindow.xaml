@@ -5,9 +5,60 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfWebApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="WpfWebApp" Height="450" Width="800">
     <Grid>
-        
+        <TabControl Grid.ColumnSpan="2">
+            <TabItem Header="Posty">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="PostDataGrid" x:FieldModifier="public" AutoGenerateColumns="False " ColumnWidth="*">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID Kategorii" Binding="{Binding CategoryID}"/>
+                            <DataGridTextColumn Header="ID Użytkownika" Binding="{Binding UserID}"/>
+                            <DataGridTextColumn Header="ID Treść" Binding="{Binding Content}"/>
+                            <DataGridTemplateColumn>
+                                <DataGridTemplateColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="Akcje"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.HeaderTemplate>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button x:Name="removePostBtn" Content="Usuń" Click="removePostBtn_Click"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Dodaj post">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="Dodaj użytkownika">
+                <Grid Background="#FFE5E5E5">
+                    <Label Content="Nazwa użytkownika" HorizontalAlignment="Left" Margin="150,50,0,0" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" Margin="350,50,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" x:Name="usernameTextBox"/>
+                    <Label Content="Imie" HorizontalAlignment="Left" Margin="150,85,0,0" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" Margin="350,85,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" x:Name="firstnameTextBox"/>
+                    <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="150,120,0,0" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" Margin="350,120,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" x:Name="lastnameTextBox"/>
+                    <Button Content="Dodaj" HorizontalAlignment="Left" Margin="250,200,0,0" VerticalAlignment="Top" Click="AddUserButton_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Dodaj kategorie">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="130*"/>
+                        <ColumnDefinition Width="17*"/>
+                        <ColumnDefinition Width="647*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Nazwa kategorii" HorizontalAlignment="Left" Margin="3,50,0,0" VerticalAlignment="Top" Grid.Column="2"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
 
     </Grid>
 </Window>

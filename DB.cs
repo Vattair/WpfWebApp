@@ -23,5 +23,21 @@ namespace WpfWebApp
             context.Users.Add(user);
             context.SaveChanges();
         }
+        public static void AddCategory(string name)
+        {
+            using var context = new WebAppContext();
+
+            PostCategory postCategory = new PostCategory() { Category = name };
+            context.PostCategory.Add(postCategory);
+            context.SaveChanges();
+        }
+        public static void AddPost(int userid, int categoryid, string content)
+        {
+            using var context = new WebAppContext();
+
+            Post post = new Post() { UserID = userid,CategoryID=categoryid,Content=content};
+            context.Posts.Add(post);
+            context.SaveChanges();
+        }
     }
 }
